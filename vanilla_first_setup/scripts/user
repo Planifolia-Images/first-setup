@@ -10,6 +10,6 @@ if ! [ "$UID" == "0" ]; then
     exit 6
 fi
 
-adduser --quiet --disabled-password --shell /bin/bash --gecos "$2" "$1"
+useradd -m -s /bin/bash -c "$2" "$1"
 passwd --delete --expire "$1"
 usermod -a -G sudo,adm,lpadmin "$1"
